@@ -1,9 +1,0 @@
-object DM: TDM
-  OldCreateOrder = False
-  Height = 150
-  Width = 215
-  object FConexao: TFDConnection
-    Left = 32
-    Top = 24
-  end
-end
