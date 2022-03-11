@@ -1,0 +1,54 @@
+unit uClienteController;
+
+interface
+
+uses FireDAC.Comp.Client, System.SysUtils, ClienteModel;
+
+Type
+  TClienteController = class
+
+    function BuscaClienteId(cod: integer): TClienteModel;
+  end;
+
+implementation
+
+{ TClienteController }
+
+uses uDm;
+
+function TClienteController.BuscaClienteId(cod: integer): TClienteModel;
+var
+  QueryCons: TFDQuery;
+  Cliente: TClienteModel;
+begin
+  try
+    QueryCons := TFDQuery.Create(Nil);
+    QueryCons.Connection := Dm.FConexao;
+    Cliente := TClienteModel.Create();
+
+    with QueryCons do
+    begin
+      sql.Add('select * from cliente where codigo = :cod');
+      parambyname('cod').AsInteger := cod;
+      open;
+    end;
+
+    if Not(QueryCons.IsEmpty) then
+    Begin
+
+      Cliente.codigo := QueryCons.FieldByName('codigo').AsInteger;
+      Cliente.nome := QueryCons.FieldByName('nome').AsString;
+      Cliente.uf := QueryCons.FieldByName('uf').AsString;
+      Cliente.cidade := QueryCons.FieldByName('cidade').AsString;
+
+    End;
+
+    Result := Cliente;
+
+  finally
+    FreeAndNil(QueryCons);
+  end;
+
+end;
+
+end.

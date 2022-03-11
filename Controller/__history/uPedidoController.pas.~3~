@@ -1,0 +1,22 @@
+unit uPedidoController;
+
+interface
+
+Type
+  TPedidoController = class
+  public
+    class function CalculaTotal(cQuant, cVlr: Currency): Currency;
+    class function GravarPedito(DataSet: TFDMemTable): Boolean;
+
+  end;
+
+implementation
+
+{ TPedidoController }
+
+class function TPedidoController.CalculaTotal(cQuant, cVlr: Currency): Currency;
+begin
+  Result := cQuant * cVlr;
+end;
+
+end.

@@ -1,0 +1,20 @@
+unit ClienteModel;
+
+interface
+
+Type TClienteModel = class
+
+private
+
+public
+
+ property codigo: Integer read Fcodigo write Fcodigo;
+    property nome: String read Fnome write Fnome;
+    property cidade: String read Fcidade write Fcidade;
+    property uf: String read Fuf write Fuf;
+
+end;
+
+implementation
+
+end.

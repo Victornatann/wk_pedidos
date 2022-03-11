@@ -1,0 +1,18 @@
+object Dm: TDm
+  OldCreateOrder = False
+  Height = 150
+  Width = 215
+  object FDPhysMySQLDriverLink1: TFDPhysMySQLDriverLink
+    Left = 56
+    Top = 88
+  end
+  object FDConnection1: TFDConnection
+    Params.Strings = (
+      'Database=db_wk'
+      'User_Name=root'
+      'Password=SiInteligente%$#@!1'
+      'DriverID=MySQL')
+    Left = 56
+    Top = 24
+  end
+end

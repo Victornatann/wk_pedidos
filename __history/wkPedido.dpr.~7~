@@ -1,0 +1,21 @@
+program wkPedido;
+
+uses
+  Vcl.Forms,
+  uFrmPedido in 'uFrmPedido.pas' {FrmPedido},
+  ProdutoModel in 'ProdutoModel.pas',
+  uProdutoController in 'Controller\uProdutoController.pas',
+  uDm in 'uDm.pas' {DM: TDataModule},
+  ClienteModel in 'Model\ClienteModel.pas',
+  uClienteController in 'Controller\uClienteController.pas',
+  uUtils in 'Units\uUtils.pas';
+
+{$R *.res}
+
+begin
+  Application.Initialize;
+  Application.MainFormOnTaskbar := True;
+  Application.CreateForm(TFrmPedido, FrmPedido);
+  Application.CreateForm(TDM, DM);
+  Application.Run;
+end.
